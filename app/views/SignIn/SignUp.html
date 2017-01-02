@@ -1,0 +1,29 @@
+{{template "login_header.html" .}}
+<form method="POST" action="/register" accept-charset="UTF-8">
+  <h1>Sign Up</h1>
+  {{template "flash.html" .}}
+  <div>
+    {{with $field := field "mockUser.Name" .}}
+    <input class="form-control" placeholder="Username" name="{{$field.Name}}" type="text" value="{{$field.Flash}}">
+    {{end}}
+  </div>
+  <div>
+    {{with $field := field "mockUser.Email" .}}
+    <input class="form-control" placeholder="Email" name="{{$field.Name}}" type="email" value="{{$field.Flash}}">
+    {{end}}
+  </div>
+  <div>
+    <input class="form-control" placeholder="Password" name="mockUser.Password" type="password" value="">
+  </div>
+  <div>
+    <input class="form-control" placeholder="Confirm Password" name="mockUser.PasswordConfirm" type="password" value="">
+  </div>
+  <div>
+    <input class="btn btn-default submit" type="submit" value="Sign Up">
+    <a class="reset_pass" href="">Lost your　password?</a>
+    <a class="reset_pass" href="/sign_up">Sign UP</a>
+  </div>
+
+  <div class="clearfix"></div>
+</form>
+{{template "login_footer.html" .}}

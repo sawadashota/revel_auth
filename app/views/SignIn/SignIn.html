@@ -1,0 +1,19 @@
+{{template "login_header.html" .}}
+<form method="POST" action="/auth" accept-charset="UTF-8">
+  <h1>Sign In</h1>
+  {{template "flash.html" .}}
+  <div>
+    <input class="form-control" placeholder="Email" name="email" type="email">
+  </div>
+  <div>
+    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+  </div>
+  <div>
+    <input class="btn btn-default submit" type="submit" value="Sign In">
+    <a class="reset_pass" href="">Lost your　password?</a>
+    <a class="reset_pass" href="/sign_up">Sign UP</a>
+  </div>
+
+  <div class="clearfix"></div>
+</form>
+{{template "login_footer.html" .}}

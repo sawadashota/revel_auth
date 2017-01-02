@@ -1,0 +1,38 @@
+{{set . "title" "All Users"}}
+{{template "header.html" .}}
+
+<header class="jumbotron" style="background-color:#A9F16C">
+  <div class="container">
+    <div class="row">
+      <h1>All Users</h1>
+      <p>Sign In as {{ .auth.Name }} (You belong to {{ .auth.Team.Name }})</p>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    {{if .flash.success}}
+    <div class="alert alert-success">
+      {{.flash.success}}
+    </div>
+    {{end}}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Created At</th>
+      </tr>
+      {{ range .users }}
+      <tr>
+        <td>{{ .ID }}</td>
+        <td>{{ .Name }}</td>
+        <td>{{ .CreatedAt }}</td>
+      </tr>
+      {{ end }}
+    </table>
+    <a href="/sign_out">Sign Out</a>
+  </div>
+</div>
+
+{{template "footer.html" .}}
